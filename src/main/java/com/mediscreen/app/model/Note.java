@@ -1,24 +1,28 @@
 package com.mediscreen.app.model;
 
-import org.bson.types.ObjectId;
+import java.util.Date;
 
 public class Note {
 
 	private String id;
 	
+	private Date date;
+	
 	private int patientId;
 	
-	private String recommandation;
+	private String recommendation;
 	
 	public Note() {
 		super();
 	}
 
-	public Note(int patientId, String recommandation) {
+	public Note(String id, Date date, int patientId, String recommendation) {
+		super();
+		this.id = id;
+		this.date = date;
 		this.patientId = patientId;
-		this.recommandation = recommandation;
+		this.recommendation = recommendation;
 	}
-	
 
 	public String getId() {
 		return id;
@@ -26,6 +30,14 @@ public class Note {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date timestamp) {
+		this.date = timestamp;
 	}
 
 	public int getPatientId() {
@@ -36,12 +48,12 @@ public class Note {
 		this.patientId = patientId;
 	}
 
-	public String getRecommandation() {
-		return recommandation;
+	public String getRecommendation() {
+		return recommendation;
 	}
 
-	public void setRecommandation(String recommandation) {
-		this.recommandation = recommandation;
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
 	}
 	
 

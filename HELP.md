@@ -1,24 +1,22 @@
-# Getting Started
+# MediscreenApp
 
-### Reference Documentation
-For further reference, please consider the following sections:
+UI, basically a webapp.
+ 
+You will be able to interact with the3 services : Patient, Note and Assessment
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.3/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.3/gradle-plugin/reference/html/#build-image)
-* [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.6.3/reference/htmlsingle/#boot-features-spring-mvc-template-engines)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.6.3/reference/htmlsingle/#boot-features-developing-web-applications)
+App exposed port : 8084
 
-### Guides
-The following guides illustrate how to use some features concretely:
 
-* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+##### Prerequisites
+- Java 11
+- SpringBoot 2.5.5
 
-### Additional Links
-These additional references should also help you:
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+##### Running App
+Please download : 
+https://github.com/RichardPennarun/mediscreenWebapp/archive/refs/heads/main.zip
+
+Open in your favorite editor and run app.
+Open your favorite browser and go to : 
+- http://localhost:8084/home
 

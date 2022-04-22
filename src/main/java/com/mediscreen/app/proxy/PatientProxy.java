@@ -13,7 +13,7 @@ import com.mediscreen.app.model.Patient;
 
 @Component
 public class PatientProxy {
-	
+
 	@Autowired
 	private CustomProp props;
 
@@ -23,71 +23,53 @@ public class PatientProxy {
 		String getPatientsUrl = baseApiUrl + "/patients";
 
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Iterable<Patient>> response = restTemplate.exchange(
-				getPatientsUrl, 
-				HttpMethod.GET, 
-				null,
-				new ParameterizedTypeReference<Iterable<Patient>>() {}
-			);
-		
+		ResponseEntity<Iterable<Patient>> response = restTemplate.exchange(getPatientsUrl, HttpMethod.GET, null,
+				new ParameterizedTypeReference<Iterable<Patient>>() {
+				});
+
 		return response.getBody();
 	}
-	
+
 	public Patient getPatient(int id) {
 		String baseApiUrl = props.getPatientApiUrl();
 		String getPatientUrl = baseApiUrl + "/patient/" + id;
 
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Patient> response = restTemplate.exchange(
-				getPatientUrl, 
-				HttpMethod.GET, 
-				null,
-				Patient.class
-			);
-		
+		ResponseEntity<Patient> response = restTemplate.exchange(getPatientUrl, HttpMethod.GET, null, Patient.class);
+
 		return response.getBody();
 	}
-	
+
 	public Patient createPatient(Patient e) {
 		String baseApiUrl = props.getPatientApiUrl();
 		String createPatientUrl = baseApiUrl + "/patient";
-		
+
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<Patient> request = new HttpEntity<Patient>(e);
-		ResponseEntity<Patient> response = restTemplate.exchange(
-				createPatientUrl, 
-				HttpMethod.POST, 
-				request, 
+		ResponseEntity<Patient> response = restTemplate.exchange(createPatientUrl, HttpMethod.POST, request,
 				Patient.class);
-		
+
 		return response.getBody();
 	}
-	
+
 	public Patient updatePatient(Patient e) {
 		String baseApiUrl = props.getPatientApiUrl();
 		String updatePatientUrl = baseApiUrl + "/patient/" + e.getId();
 
 		RestTemplate restTemplate = new RestTemplate();
 		HttpEntity<Patient> request = new HttpEntity<Patient>(e);
-		ResponseEntity<Patient> response = restTemplate.exchange(
-				updatePatientUrl, 
-				HttpMethod.PUT, 
-				request, 
+		ResponseEntity<Patient> response = restTemplate.exchange(updatePatientUrl, HttpMethod.PUT, request,
 				Patient.class);
-		
+
 		return response.getBody();
 	}
-	
+
 	public void deletePatient(int id) {
 		String baseApiUrl = props.getPatientApiUrl();
 		String deletePatientUrl = baseApiUrl + "/patient/" + id;
-		
+
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Void> response = restTemplate.exchange(
-				deletePatientUrl, 
-				HttpMethod.DELETE, 
-				null, 
-				Void.class);
+		ResponseEntity<Void> response = restTemplate.exchange(deletePatientUrl, HttpMethod.DELETE, null, Void.class);
 	}
 
 }

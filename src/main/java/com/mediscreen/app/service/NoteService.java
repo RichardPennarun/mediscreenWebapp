@@ -1,11 +1,8 @@
 package com.mediscreen.app.service;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.deser.impl.ObjectIdReader;
-import com.fasterxml.jackson.databind.ser.impl.WritableObjectId;
 import com.mediscreen.app.model.Note;
 import com.mediscreen.app.proxy.NoteProxy;
 
@@ -24,20 +21,21 @@ public class NoteService {
         return noteProxy.getNotes();
     }
 	
-	public Note getNote(final int id) {
-		return noteProxy.getNote(id);
+	public Note getNote(final String string) {
+		return noteProxy.getNote(string);
 	}
 	
-	public void deleteNote(final ObjectId id) {
+	public void deleteNote(final String id) {
 		noteProxy.deleteNote(id);
 	}
 	
 	public Note saveNote(Note note) {
-		Note savedNote;
+		return noteProxy.createNote(note);
+	}
 
-		savedNote = noteProxy.createNote(note);
+	public void deletePatientNotes(final int patientId) {
+		noteProxy.deleteNotes(patientId);
 		
-		return savedNote;
 	}
 
 }

@@ -1,9 +1,6 @@
 package com.mediscreen.app.proxy;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.mediscreen.app.config.CustomProp;
-import com.mediscreen.app.model.Note;
-import com.mediscreen.app.model.Patient;
+import com.mediscreen.app.model.DTO.PatientDTO;
 
 @Component
 public class AssessmentProxy {
@@ -20,17 +16,17 @@ public class AssessmentProxy {
 	@Autowired
 	private CustomProp props;
 	
-	public Patient getAssessment(Patient patientToAssess) {
+	public PatientDTO getAssessment(PatientDTO patientToAssess) {
 		String baseApiUrl = props.getAssessmentApiUrl();
-		String getAssessmentUrl = baseApiUrl + "/assessment";
+		String getAssessmentUrl = baseApiUrl + "/getAssessment";
 		
 		RestTemplate restTemplate = new RestTemplate();
-		HttpEntity<Patient> request = new HttpEntity<Patient>(patientToAssess);
-		ResponseEntity<Patient> response = restTemplate.exchange(
+		HttpEntity<PatientDTO> request = new HttpEntity<PatientDTO>(patientToAssess);
+		ResponseEntity<PatientDTO> response = restTemplate.exchange(
 				getAssessmentUrl, 
 				HttpMethod.POST, 
 				request, 
-				Patient.class);
+				PatientDTO.class);
 		
 		return response.getBody();
 	}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhml"
 	xmlns:th="http://www.thymeleaf.org">
-	
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible">
@@ -16,7 +16,7 @@
 
 <style>
 .container {
-	padding-top : 10px;
+	padding-top: 10px;
 }
 
 body {
@@ -31,11 +31,6 @@ body {
 h4 {
 	font-size: small;
 }
-
-/* .btn {
-	width: 220px;
-	font-size: small;
-} */
 </style>
 
 
@@ -44,63 +39,59 @@ h4 {
 
 	<header>
 		<nav class="navbar navbar-expand navbar-inverse navbar-fixed-top">
-		<div class="row">
-		<div class="col-2">
-		</div><div class="p-3 mb-2 bg-success text-white rounded-lg">Mediscreen</div>
-</div><div class="col-2"></div>
-		<div class="col-5">
-		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a></li>
-			<li class="nav-item"><a class="nav-link" th:href="@{/patients}">Patients</a></li>
-			<li class="nav-item active"><a class="nav-link" th:href="@{/notes}">Notes</a></li>
-			<li class="nav-item"><a class="nav-link" th:href="@{/test}">Test</a></li>
-		</ul></div>
-		<div class="col-3">
-		<a th:href="@{/logout}">
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="p-3 mb-2 bg-success text-white rounded-lg">Mediscreen</div>
+			</div>
+			<div class="col-2"></div>
+			<div class="col-5">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/patients}">Patients</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/notes}">Notes</a></li>
+				</ul>
+			</div>
+			<div class="col-3">
+				<a th:href="@{/logout}">
 					<button type="button">LOGOUT</button>
-			</a>
-		</div>
-	</nav>
+				</a>
+			</div>
+		</nav>
 
 
-<div class="p-3 mb-2 bg-light text-dark">Create new note</div>
+		<div class="p-3 mb-2 bg-light text-dark">Create new note</div>
 
-</header>
-
-
-
-<div class="container special">
-
-		<!--  <h4><a th:href="@{/createUser}">Add a user</a></h4> -->
+	</header>
 
 
-		<h4>
-			Enter details
-		</h4>
+
+	<div class="container special">
+
+
+		<h4>Enter details</h4>
 
 
 	</div>
 
 
 
-<div class="container bg-light">
+	<div class="container bg-light">
 
-		<form method="post" th:action="@{/saveNote}"
-			th:object="${note}">
-				<div class="form-group">
-					<label for="patientIdInput">patient id</label> 
-					<input
-						type="text" th:field="*{patientId}" class="form-control" id="patientIdInput"
-						aria-describedby="patientIdHelp" placeholder="Enter patient Id"> 
-				</div>
+		<form method="post" th:action="@{/saveNote}" th:object="${note}">
 			<div class="form-group">
-					<label for="recommandationInput">recommandation</label> 
-					<input
-						type="text" th:field="*{recommandation}" class="form-control" id="recommandationInput"
-						aria-describedby="recommandationHelp" placeholder="Enter recommandation"> 
-				</div>
+				<label for="patientIdInput">patient id</label> <input type="text"
+					th:field="*{patientId}" class="form-control" id="patientIdInput"
+					aria-describedby="patientIdHelp" placeholder="Enter patient Id">
+			</div>
+			<div class="form-group">
+				<label for="recommendationInput">recommendation</label> <input
+					type="text" th:field="*{recommendation}" class="form-control"
+					id="recommendationInput" aria-describedby="recommendationHelp"
+					placeholder="Enter recommendation">
+			</div>
 
-					<button type="submit" class="btn btn-success btn-lg">Save</button>
+			<button type="submit" class="btn btn-success btn-lg">Save</button>
 		</form>
 	</div>
 
